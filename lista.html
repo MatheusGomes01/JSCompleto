@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<div class="container">
+		<input type="text" name="txtTask" id="txtTask"><br>
+		<button type="button" id="add">Cadastrar tarefa</button>
+		<ul>
+			<li>Estudar Dom JS</li>
+			<li>Esturar eventos</li>
+			<li>Jogar</li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	(() => {
+		'use strict';
+
+		let cadastrar = () => {
+			let ul = document.querySelector('ul');
+			let txtTask = '<li>' + document.querySelector('#txtTask').value + '</li>'; 
+			let txtTask_1 = document.querySelector('#txtTask');
+
+			ul.innerHTML+=txtTask;
+			txtTask_1.value = '';
+			txtTask_1.focus();
+		}
+
+		document.querySelector('#add').addEventListener('click', () => {
+		cadastrar();
+	})
+
+	})()
+</script>
+</html>
