@@ -29,13 +29,20 @@
 		let li = ul.querySelectorAll('li');
 
 		ul.addEventListener('click', (e) => {
-			e.target.nodeName === 'LI' ? fn_toggleDone(e.target) : ''
+			//e.target.nodeName === 'LI' ? fn_toggleDone(e.target) : ''
+			e.target.nodeName === 'LI' ? fn_removeTask(e.target) : ''
 		})
 
-		let fn_toggleDone =  (li) => {
+		/*let fn_toggleDone =  (li) => {
 			li.classList.toggle('done');
-		}
+		}*/
 
+		let fn_removeTask = (li) => {
+			if(confirm('Deseja realmente excluir a tarefa \n'+ li.textContent +' ?')){
+				console.log(li.parentNode)
+				li.parentNode.removeChild(li)
+			}
+		}
 
 		let fn_cadastrar =  () => {
 			//var txtTask = '<li>' + document.querySelector('#txtTask').value + '</li>'; 
