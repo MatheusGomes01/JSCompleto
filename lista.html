@@ -25,24 +25,30 @@
 	(() => {
 		'use strict';
 
-		var ul = document.querySelector('ul');
-		var li = ul.querySelectorAll('li');
-		var txtTask = '<li>' + document.querySelector('#txtTask').value + '</li>'; 
-		var txtTask_1 = document.querySelector('#txtTask');
+		let ul = document.querySelector('ul');
+		let li = ul.querySelectorAll('li');
 
-		for (var i = 0; i < li.length; i++) {
-			li[i].addEventListener('click', fn_toggleDone)
-		}
+		ul.addEventListener('click', (e) => {
+			e.target.nodeName === 'LI' ? fn_toggleDone(e.target) : ''
+		})
 
-		function fn_toggleDone () {
-			this.classList.toggle('done');
+		function fn_toggleDone (li) {
+			li.classList.toggle('done');
 		}
 
 
 		function fn_cadastrar (){
-			ul.innerHTML+=txtTask;
-			txtTask_1.value = '';
-			txtTask_1.focus();
+			//var txtTask = '<li>' + document.querySelector('#txtTask').value + '</li>'; 
+			let txtTask = document.querySelector('#txtTask');
+			let li = document.createElement('li');
+			let text = document.createTextNode(txtTask.value)
+			li.appendChild(text)
+
+			ul.appendChild(li)
+
+			//ul.innerHTML+=txtTask;
+			txtTask.value = '';
+			txtTask.focus();
 		}
 
 		document.querySelector('#txtTask').addEventListener('keyup', (e) => {
