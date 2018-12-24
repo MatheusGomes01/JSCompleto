@@ -29,6 +29,11 @@
 			txtTask_1.focus();
 		}
 
+		document.querySelector('#txtTask').addEventListener('keyup', (e) => {
+			e.keyCode == 13 ? cadastrar() : ''
+		})
+
+
 		document.querySelector('#add').addEventListener('click', () => {
 		cadastrar();
 	})
