@@ -2,6 +2,12 @@
 <html>
 <head>
 	<title></title>
+	<style type="text/css">
+		.done {
+			text-decoration: line-through;
+			color: #555;
+		}
+	</style>
 </head>
 <body>
 
@@ -19,23 +25,33 @@
 	(() => {
 		'use strict';
 
-		let cadastrar = () => {
-			let ul = document.querySelector('ul');
-			let txtTask = '<li>' + document.querySelector('#txtTask').value + '</li>'; 
-			let txtTask_1 = document.querySelector('#txtTask');
+		var ul = document.querySelector('ul');
+		var li = ul.querySelectorAll('li');
+		var txtTask = '<li>' + document.querySelector('#txtTask').value + '</li>'; 
+		var txtTask_1 = document.querySelector('#txtTask');
 
+		for (var i = 0; i < li.length; i++) {
+			li[i].addEventListener('click', fn_toggleDone)
+		}
+
+		function fn_toggleDone () {
+			this.classList.toggle('done');
+		}
+
+
+		function fn_cadastrar (){
 			ul.innerHTML+=txtTask;
 			txtTask_1.value = '';
 			txtTask_1.focus();
 		}
 
 		document.querySelector('#txtTask').addEventListener('keyup', (e) => {
-			e.keyCode == 13 ? cadastrar() : ''
+			e.keyCode == 13 ? fn_cadastrar() : ''
 		})
 
 
 		document.querySelector('#add').addEventListener('click', () => {
-		cadastrar();
+		fn_cadastrar();
 	})
 
 	})()
