@@ -32,12 +32,12 @@
 			e.target.nodeName === 'LI' ? fn_toggleDone(e.target) : ''
 		})
 
-		function fn_toggleDone (li) {
+		let fn_toggleDone =  (li) => {
 			li.classList.toggle('done');
 		}
 
 
-		function fn_cadastrar (){
+		let fn_cadastrar =  () => {
 			//var txtTask = '<li>' + document.querySelector('#txtTask').value + '</li>'; 
 			let txtTask = document.querySelector('#txtTask');
 			let li = document.createElement('li');
