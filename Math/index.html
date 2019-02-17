@@ -6,6 +6,17 @@
 </head>
 <body>
 <script type="text/javascript" src="math.js"></script>
+<script type="text/javascript">
+	
+(() => {
+	window.addEventListener('load', fn_init)
 
+	function fn_init(){
+		var n = fn_sortear(5) +1;
+		document.querySelector('body').style.background = 'url(../images/'+n+'.jpg)'
+	}
+})();
+
+</script>
 </body>
 </html>
