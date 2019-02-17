@@ -11,7 +11,11 @@ Math.random() // retorna um randomico de 0 até 0.9999999999 (quase 1)
 Math.PI //Retorna o PI
 
 var fn_sortear = (n) => {
+	var _n = n || 1;
 	var nSorteado = Math.random();
-	console.log(nSorteado)
+
+	nSorteado = nSorteado*_n;
+	nSorteado = Math.floor(nSorteado);
+
 	return nSorteado;
 }
